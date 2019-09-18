@@ -34,4 +34,12 @@ export class ProductEditComponent implements OnInit {
       });
     });
   }
+  // product-edit.component.ts
+
+updateProduct(ProductName, ProductDescription, ProductPrice, id) {
+  this.route.params.subscribe(params => {
+    this.ps.updateProduct(ProductName, ProductDescription, ProductPrice, params.id);
+    this.router.navigate(['products']);
+  });
+}
 }
