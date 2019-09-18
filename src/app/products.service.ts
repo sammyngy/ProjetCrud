@@ -36,15 +36,20 @@ export class ProductsService {
     }
     // products.service.ts
 
-updateProduct(ProductName, ProductDescription, ProductPrice, id) {
-  const obj = {
-    ProductName,
-    ProductDescription,
-    ProductPrice
-  };
-  this
-    .http
-    .post(`${this.uri}/update/${id}`, obj)
-    .subscribe(res => console.log('Done'));
+    updateProduct(ProductName, ProductDescription, ProductPrice, id) {
+      const obj = {
+        ProductName,
+        ProductDescription,
+        ProductPrice
+      };
+      this
+        .http
+        .post(`${this.uri}/update/${id}`, obj)
+        .subscribe(res => console.log('Done'));
+  }
+deleteProduct(id) {
+  return this
+            .http
+            .get(`${this.uri}/delete/${id}`);
 }
 }
